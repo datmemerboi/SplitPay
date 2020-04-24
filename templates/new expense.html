@@ -1,7 +1,29 @@
-{% include 'expense.html' %}
-{# {%block additional}{% endblock %} #}
 {% load static %}
+{% csrf_token %}
+<html>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{%static 'css/font.css' %}">
 <link rel="stylesheet" type="text/css" href="{%static 'css/new expense.css' %}">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="{%static 'js/new expense.js' %}"></script>
+
 <title>{{title}}</title>
-{%block expenses%}
-{%endblock%}
+<button class="add-btn">Add</button>
+<br><br>
+<form class="new-form" method="POST" action="/expense/create/" onsubmit="event.preventDefault();">
+	<div class="input-div">
+		<input type="text" id='expense-name' placeholder="Name of expense" onkeyup="expenseNaming(this.value)">
+		<br>
+		<label>Press Enter after each actor involved</label><br>
+		<input type="text" id="actors-input" onkeyup="createActor(event)" placeholder="Name of Actors">
+	</div>
+</form>
+	<div class="expense-details" id="expense-details">
+		<div id="expense-details-name"></div>
+		<hr>
+		<div id="actors-involved" class="actors-involved"></div>
+	</div>
+	<br><br>
+	<button onclick="submission(event);">Submit</button>
+</html>
