@@ -1,3 +1,6 @@
 db.sqlite3
 index/__pycache__
 expense/__pycache__
+SplitPay/__pycache__
+Mariadb.py
+Sqlite/

@@ -16,16 +16,6 @@ br {
 .btn:active{
 	background-color: #32486D;
 }
-.input-div{
-	position:absolute; top: 9vh; left: 2vw;
-}
-.text-input {
-	width: 25vw; height: 7vh;
-	background-color: #EAECEE;
-	color: #000;
-	border: thin; outline: none;
-	padding-left: 1em;
-}
 .right-half {
 	width: 50vw; height: auto;
 	position: absolute; left: 50vw; top: 0vw;

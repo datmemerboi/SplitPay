@@ -1,4 +1,7 @@
 Actors = []
+function showNewForm() {
+	document.getElementById('new-form').style.display = "block";
+}
 function expenseNaming(arg) {
 	var name = document.createElement("H2");
 	name.innerHTML = arg;
@@ -36,7 +39,7 @@ function putInDiv( Actors ){
 }
 function deleteItem(arg) {
 	var label = arg.parentNode.childNodes[0].innerHTML;
-	Actors = Actors.filter( (value, index)=>{ return value != label;});
+	Actors = Actors.filter( (value, index)=>{ return value != label; });
 	document.getElementById('actors-involved').removeChild( arg.parentNode );
 }
 
@@ -47,12 +50,12 @@ function submission(event) {
       url: "/expense/create/",
       data: {
       	'name': document.getElementById('expense-name').value,
-        'actors': Actors,
-        // 'csrfmiddlewaretoken': '{{ csrf_token }}',
+        'actors[]': Actors,
+        'csrfmiddlewaretoken': '{{ csrf_token }}',
       },
       success: function () {
       	alert("Created Event");
-      	window.location.href="/";
+      	window.location.href="/expense/all/";
       }
     });
 }
