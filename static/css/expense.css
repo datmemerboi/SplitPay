@@ -24,7 +24,7 @@ br {
 	background-color: #EAEAEA;
 	color: #000;
 	width: 30vw; min-height: 20vh;
-	padding-left: 1em; padding-right: 1em;
+	padding:1em;
 }
 #actors-involved {
 	width: inherit;
