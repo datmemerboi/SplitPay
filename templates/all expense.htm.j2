@@ -8,23 +8,26 @@
 </head>
 <body>
 	<h1>List of all your expenses</h1>
-	{%for each in allExpense%}
-		<div class="expense-details">
-			<div id="expense-details-name">
-				<h2>{{each.name}}</h2>
+	<div class="container">
+		{%for each in allExpense%}
+			<div class="expense-details-padding">
+				<div class="expense-details" id={{each.id}}>
+					<div class="expense-details-name">
+						<h2>{{each.name}}</h2>
+					</div>
+					<hr>
+					<div class="actors-involved">
+						{%for item in each.actors%}
+							<button class="actor-item">
+								<label>{{item}}</label>
+								{# <button class="delete-btn">x</button> #}
+							</button>
+						{%endfor%}
+					</div>
+					<p>{{each.dateTime|date:"F d, Y"}}</p>
+				</div>
 			</div>
-			<hr>
-			<div id="actors-involved" class="actors-involved">
-				{%for item in each.actors%}
-					<button class="actor-item">
-						<label>{{item}}</label>
-						{# <button class="delete-btn">x</button> #}
-					</button>
-				{%endfor%}
-			</div>
-			<p>{{each.dateTime|date:"F d, Y"}}</p>
-		</div>
-		<br>
-	{%endfor%}
+		{%endfor%}
+	</div>
 </body>
 </html>

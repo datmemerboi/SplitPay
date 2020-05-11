@@ -25,6 +25,6 @@ def createExpenseFn(request):
 def allExpenseFn(request):
 	allExpense = []
 	for i in Expense.objects.all():
-		di = { 'name':i.name, 'actors':json.loads(i.actors), 'dateTime':i.dateTime }
+		di = { 'id':i.id, 'name':i.name, 'actors':json.loads(i.actors), 'dateTime':i.dateTime }
 		allExpense.append( di )
 	return render( request, "all expense.htm.j2", { 'allExpense':allExpense })
