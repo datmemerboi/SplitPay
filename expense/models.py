@@ -1,7 +1,11 @@
 from django.db import models
-import json
+import json, random
 
 class Expense(models.Model):
+	def random_id():
+		return str(random.randint(2000, 5000))
+	
+	id = models.CharField( default=random_id, primary_key=True, max_length=4)
 	name = models.CharField(max_length=30)
 	actors = models.CharField(max_length=300)
 	dateTime = models.DateTimeField(auto_now=True)
@@ -18,14 +22,3 @@ class Expense(models.Model):
 	
 	def get_dateTime(self):
 		return self.dateTime
-
-class Payment(models. Model):
-	whichExpense = models.ForeignKey( Expense, on_delete=models.CASCADE )
-	amount = models.IntegerField()
-	paymentBy = models.CharField(max_length=300)
-
-	def set_amount(self, a):
-		self.amount = a
-
-	def set_paymentBy(self, p):
-		self.paymentBy = json.dumps( p )
